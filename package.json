@@ -2,10 +2,9 @@
   "name": "02_responde_method",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "nodemon server.js",
-    "build": "tsc",
     "start": "node server.js"
   },
   "keywords": [],
