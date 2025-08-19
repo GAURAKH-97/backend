@@ -12,6 +12,7 @@ app.set("view engine", "ejs");
 app.get("/render", (req, res) => {
   res.render("index", { title: "My Page", user: "Toxic" });
   console.log("hello world")
+  console.log(req.ip)
 });
 
 
