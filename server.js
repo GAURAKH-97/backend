@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.get('/',(req,res)=>{
     const data={
         "activities":{
-        "today_timespent":190,
+        "today_timespent":180,
         "today_focus":120,
         "distraction_website":{
             "Tiktok":8,
