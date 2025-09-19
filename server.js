@@ -2,9 +2,19 @@ const express =require('express')
 const cors = require('cors');
 const app=express()
 app.use(express.json())
+const allowedOrigins = [
+  'http://localhost:5173',       // dev
+  'chrome-extension://pljlblknbekoelgpncddacpgodhehdmj' // replace <your-id> with your extension id
+];
 app.use(cors({
-  origin: 'http://localhost:5173', // frontend origin
-  credentials: true,               // allow cookies if needed
+  origin: (origin, callback) => {
+    if (!origin || origin.startsWith('chrome-extension://')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
 }));
 const PORT = process.env.PORT || 3000;
 app.get('/',(req,res)=>{
